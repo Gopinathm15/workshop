@@ -2,11 +2,11 @@ package com.workshop.model;
 
 import com.workshop.constants.UserChoice;
 
-public class CopyCatBot extends Player {
+public class Grodger extends Player {
 
-	private String playerChoice = null;
+	private boolean isCheated = false;
 
-	public CopyCatBot(String type) {
+	public Grodger(String type) {
 		super(type);
 	}
 
@@ -17,8 +17,8 @@ public class CopyCatBot extends Player {
 
 	@Override
 	public void pickChoice() {
-		if (playerChoice != null) {
-			super.setChoice(playerChoice);
+		if (isCheated) {
+			super.setChoice(UserChoice.CHEAT.name());
 		} else {
 			super.setChoice(UserChoice.COOPERATE.name());
 		}
@@ -26,7 +26,11 @@ public class CopyCatBot extends Player {
 
 	@Override
 	public void holdPlayerChoice(String playerChoice) {
-		this.playerChoice = playerChoice;
+		if (!isCheated) {
+			if (playerChoice.equalsIgnoreCase(UserChoice.CHEAT.name())) {
+				this.isCheated = true;
+			}
+		}
 	}
 
 }

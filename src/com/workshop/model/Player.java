@@ -37,4 +37,8 @@ public class Player {
 		this.choice = GameChoiceUtils.getHumanRamdomChoice();
 	}
 
+	public void holdPlayerChoice(String playerChoice) {
+
+	}
+
 }

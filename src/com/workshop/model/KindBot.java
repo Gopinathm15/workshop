@@ -2,9 +2,9 @@ package com.workshop.model;
 
 import com.workshop.constants.UserChoice;
 
-public class Evil extends Player {
+public class KindBot extends Player {
 
-	public Evil(String type) {
+	public KindBot(String type) {
 		super(type);
 	}
 
@@ -12,10 +12,9 @@ public class Evil extends Player {
 	public String getChoice() {
 		return super.getChoice();
 	}
-	
+
 	@Override
 	public void pickChoice() {
-		super.setChoice(UserChoice.CHEAT.name());
+		super.setChoice(UserChoice.COOPERATE.name());
 	}
-
 }
